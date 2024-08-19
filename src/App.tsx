@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Typography, ConfigProvider } from "antd";
+
+import ToDoList from "./components/TodoList";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const { Title } = Typography;
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <ConfigProvider
+      theme={{
+        token: {
+          // Seed Token
+          fontFamily: "Montserrat",
+
+          // Alias Token
+        },
+        components: {
+          Input: {
+            colorTextPlaceholder: "#666",
+          },
+          Button: {
+            defaultHoverColor: "#071cd4",
+            colorError: "#000",
+            colorErrorHover: "#f00",
+            defaultBg: "transparent",
+            colorErrorBg: "transparent",
+            defaultHoverBg: "transparent",
+            defaultBorderColor: "transparent",
+            defaultHoverBorderColor: "transparent",
+            contentFontSize: 20,
+            defaultActiveBg: "rgba(0, 0, 0, 0.25)",
+            defaultActiveBorderColor: "transparent",
+            defaultActiveColor: "#071cd4",
+          },
+        },
+      }}
+    >
+      {/* Utilizar Grid ou Flex */}
+      <div className="container">
+        <Title level={1}>Minha Lista de Tarefas</Title>
+        <ToDoList />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </ConfigProvider>
+  );
 }
 
-export default App
+export default App;

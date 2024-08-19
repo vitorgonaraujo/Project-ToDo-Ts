@@ -1,0 +1,17 @@
+.todo {
+    background-color: #ffffc4;
+    min-height: 250px;
+    max-height: 270px;
+    border-radius: 10px;
+    padding: 1rem;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.308);
+  }
+  
+  .addTodo {
+    background-color: #cbffc3;
+  }
+  

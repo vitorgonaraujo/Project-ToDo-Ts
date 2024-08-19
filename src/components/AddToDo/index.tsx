@@ -1,29 +1,16 @@
-import React, { useState} from "react";
+// components/AddTodo.tsx
+import React from "react";
 import styles from "../ToDo/styles.module.css";
 import { FaCheck } from "react-icons/fa";
 import { Input, Flex, Typography, Button } from "antd";
+import useAddToDo from "../../hooks/useAddToDo";
 
 interface AddTodoProps {
   onAdd: (text: string) => void;
 }
 
 const AddTodo: React.FC<AddTodoProps> = ({ onAdd }) => {
-  const [text, setText] = useState<string>("");
-  const charLimit = 200;
-
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setText(e.target.value);
-  };
-
-  const handleAdd = () => {
-    if (text.trim() === "") {
-      alert("O lembrete não pode estar vazio.");
-      return;
-    }
-
-    onAdd(text);
-    setText("");
-  };
+  const { text, charLimit, handleChange, handleAdd } = useAddToDo(onAdd);
 
   const { TextArea } = Input;
   const { Text } = Typography;

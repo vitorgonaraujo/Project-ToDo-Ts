@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { nanoid } from "nanoid";
 
-export default function useToDoList() {
-  interface Todo {
-    id: string;
-    text: string;
-    createdAt: string;
-  }
+interface Todo {
+  id: string;
+  text: string;
+  createdAt: string;
+}
 
+export default function useToDoList() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [currentTodo, setCurrentTodo] = useState<Todo | undefined>(undefined);
